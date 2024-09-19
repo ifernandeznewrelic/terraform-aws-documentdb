@@ -64,7 +64,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_apply_immediately"></a> [apply\_immediately](#input\_apply\_immediately) | Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. | `bool` | `false` | no |
-| <a name="input_backup_retention_period"></a> [backup\_retention\_period](#input\_backup\_retention\_period) | Common name prefix used to name resources | `number` | `1` | no |
+| <a name="input_backup_retention_period"></a> [backup\_retention\_period](#input\_backup\_retention\_period) | The days to retain backups for | `number` | `1` | no |
 | <a name="input_ca_cert_identifier"></a> [ca\_cert\_identifier](#input\_ca\_cert\_identifier) | Identifier of the certificate authority (CA) certificate for the DB instance. | `string` | `"rds-ca-rsa2048-g1"` | no |
 | <a name="input_cidr_blocks"></a> [cidr\_blocks](#input\_cidr\_blocks) | ipv4 cidr ranges to associate with the security group | `list(string)` | `[]` | no |
 | <a name="input_cluster_instance_name_prefix"></a> [cluster\_instance\_name\_prefix](#input\_cluster\_instance\_name\_prefix) | Common name prefix used to name resources | `string` | `null` | no |
@@ -72,7 +72,7 @@ No modules.
 | <a name="input_deletion_protection"></a> [deletion\_protection](#input\_deletion\_protection) | Enable deletion protection for the cluster | `bool` | `null` | no |
 | <a name="input_enable_performance_insights"></a> [enable\_performance\_insights](#input\_enable\_performance\_insights) | Enable performance insights for the cluster instances | `bool` | `true` | no |
 | <a name="input_enabled_cloudwatch_logs_exports"></a> [enabled\_cloudwatch\_logs\_exports](#input\_enabled\_cloudwatch\_logs\_exports) | Enable log exports for audit or profiler logs | `list(string)` | `[]` | no |
-| <a name="input_engine"></a> [engine](#input\_engine) | Common name prefix used to name resources | `string` | n/a | yes |
+| <a name="input_engine"></a> [engine](#input\_engine) | The name of the database engine to be used for this DB cluster | `string` | n/a | yes |
 | <a name="input_engine_version"></a> [engine\_version](#input\_engine\_version) | The database engine version. Updating this argument results in an outage. | `string` | n/a | yes |
 | <a name="input_instance_class"></a> [instance\_class](#input\_instance\_class) | The instance class to use | `string` | `"db.t4g.medium"` | no |
 | <a name="input_instance_count"></a> [instance\_count](#input\_instance\_count) | The number of instances to be created and joined to the cluster | `number` | `1` | no |
@@ -83,12 +83,12 @@ No modules.
 | <a name="input_parameters"></a> [parameters](#input\_parameters) | A list of DB cluster parameters to apply. Note that parameters may differ from one family to an other | `list(object({ apply_method = optional(string), value = string, name = string }))` | `[]` | no |
 | <a name="input_performance_insights_kms_key"></a> [performance\_insights\_kms\_key](#input\_performance\_insights\_kms\_key) | KMS key ID to use for performance insights | `string` | `null` | no |
 | <a name="input_port"></a> [port](#input\_port) | The port on which the DB accepts connections | `string` | `"27017"` | no |
-| <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | Common name prefix used to name resources | `string` | `null` | no |
+| <a name="input_preferred_backup_window"></a> [preferred\_backup\_window](#input\_preferred\_backup\_window) | The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter | `string` | `null` | no |
 | <a name="input_prefix_list_ids"></a> [prefix\_list\_ids](#input\_prefix\_list\_ids) | list of prefix lists to associate with the security group | `list(string)` | `[]` | no |
 | <a name="input_promotion_tier"></a> [promotion\_tier](#input\_promotion\_tier) | Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer | `string` | `null` | no |
 | <a name="input_revoke_rules_on_delete"></a> [revoke\_rules\_on\_delete](#input\_revoke\_rules\_on\_delete) | Instruct Terraform to revoke all of the Security Groups attached<br>  ingress and egress rules before deleting the rule itself.<br>  Defaults to true | `bool` | `true` | no |
 | <a name="input_security_group_tags"></a> [security\_group\_tags](#input\_security\_group\_tags) | Additional tags for the security group | `map(string)` | `{}` | no |
-| <a name="input_skip_final_snapshot"></a> [skip\_final\_snapshot](#input\_skip\_final\_snapshot) | Common name prefix used to name resources | `string` | `null` | no |
+| <a name="input_skip_final_snapshot"></a> [skip\_final\_snapshot](#input\_skip\_final\_snapshot) | Determines whether a final DB snapshot is created before the DB cluster is deleted | `string` | `null` | no |
 | <a name="input_storage_encrypted"></a> [storage\_encrypted](#input\_storage\_encrypted) | Specifies whether the DB cluster is encrypted. The default is false | `bool` | `null` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of VPC subnet IDs. | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to all resources | `map(string)` | `{}` | no |
